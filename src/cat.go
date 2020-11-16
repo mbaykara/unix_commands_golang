@@ -1,11 +1,11 @@
 package main
 
-import(
-	"fmt"
-	"os"
+import (
 	"bufio"
-	"log"
+	"fmt"
 	"io/ioutil"
+	"log"
+	"os"
 )
 
 func main() {
@@ -13,7 +13,7 @@ func main() {
  	if len(os.Args) < 2 {
 		os.Exit(0)
 	}else if len(os.Args) == 2{
-		read_file(os.Args[1])
+		readfile(os.Args[1])
 	} else {
 		concatenate(os.Args[1], os.Args[2])
 	}
@@ -35,7 +35,7 @@ func concatenate(file1, file2 string){
 	}
 }
 
-func read_file(f string){
+func readfile(f string){
 	file, err := os.Open(f)
 	if err != nil {
 		panic(err)

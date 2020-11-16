@@ -1,6 +1,6 @@
 package main
 
-import(
+import (
 	"fmt"
 	"os"
 	"strings"
@@ -9,14 +9,14 @@ import(
 func main() {
 
 	efficient()
-	less_efficient()
+	lessefficient()
 }
 
 func efficient(){
     fmt.Println(strings.Join(os.Args[1:], " "))
 }
 
-func less_efficient(){
+func lessefficient(){
 	s, sep := "",""
 	for _, arg := range os.Args[1:] {
 		s += sep + arg
