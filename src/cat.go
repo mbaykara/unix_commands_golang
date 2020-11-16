@@ -5,23 +5,39 @@ import(
 	"os"
 	"bufio"
 	"log"
-	
+	"io/ioutil"
 
 )
-//TODOS
-// open and read file
-// concatenate the file
 
 func main() {
 
-	if len(os.Args) < 2 {
+ 	if len(os.Args) < 2 {
 		os.Exit(0)
-	}else{
+	}else if len(os.Args) == 2{
 		read_file(os.Args[1])
+	} else {
+		concatenate(os.Args[1], os.Args[2])
 	}
 	
- 
-	
+}
+func concatenate(file1, file2 string){
+
+	f, err := os.OpenFile(file2,
+	os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Println(err)
+	}
+	defer f.Close()
+
+	//read file1
+	f1, err := ioutil.ReadFile(file1)
+    if err != nil {
+		panic(err)
+	}
+
+	if _, err := f.WriteString( string(f1)+"\n"); err != nil {
+		log.Println(err)
+	}
 }
 
 func read_file(f string){
