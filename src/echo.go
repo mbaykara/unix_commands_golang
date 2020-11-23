@@ -6,12 +6,12 @@ import (
 	"strings"
 )
 
-func main() {
+/* func main() {
 
 	efficient()
 	lessefficient()
 }
-
+*/
 func efficient(){
     fmt.Println(strings.Join(os.Args[1:], " "))
 }
