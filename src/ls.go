@@ -34,9 +34,15 @@ func parseArgs(arguments []string) {
 				fmt.Println(info.Mode(), file)
 			}
 		case "-la":
-			files, _ := filepath.Glob("*")
+			files, err := filepath.Glob("*")
+			if err != nil {
+				panic(err)
+			}
 			for _, file := range files {
-				info, _ := os.Stat(file)
+				info, err := os.Stat(file)
+				if err != nil {
+					panic(err)
+				}
 				fmt.Println(info.Mode(), file)
 			}
 		case "-R", "-lR", "-r", "-lr":

@@ -25,7 +25,6 @@ func concatenate(file1, file2 string) {
 		log.Println(err)
 	}
 	defer f.Close()
-	//read file1
 	f1, err := ioutil.ReadFile(file1)
 	if err != nil {
 		panic(err)
