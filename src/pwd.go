@@ -5,13 +5,15 @@ import (
 	"os"
 )
 
-/* func main() {
+func main() {
 
 	p, err := os.Getwd()
-	if err != nil {	panic(err)	}
+	if err != nil {
+		panic(err)
+	}
 	fmt.Println(p)
 }
-*/
+
 func pwd() {
 
 	p, err := os.Getwd()

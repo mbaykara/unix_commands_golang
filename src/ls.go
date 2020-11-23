@@ -8,13 +8,12 @@ import (
 	"path/filepath"
 )
 
-/*
 func main() {
 	a := os.Args
 	b := os.Args[1:]
- parseArgs(a)
- parseArgs(b)
-} */
+	parseArgs(a)
+	parseArgs(b)
+}
 
 func parseArgs(arguments []string) {
 	files, err := filepath.Glob("[^.]*")
