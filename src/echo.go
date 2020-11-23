@@ -12,15 +12,15 @@ import (
 	lessefficient()
 }
 */
-func efficient(){
-    fmt.Println(strings.Join(os.Args[1:], " "))
+func efficient() {
+	fmt.Println(strings.Join(os.Args[1:], " "))
 }
 
-func lessefficient(){
-	s, sep := "",""
+func lessefficient() {
+	s, sep := "", ""
 	for _, arg := range os.Args[1:] {
 		s += sep + arg
 		sep = " "
 	}
-	fmt.Println(s) 
+	fmt.Println(s)
 }

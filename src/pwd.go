@@ -12,9 +12,11 @@ import (
 	fmt.Println(p)
 }
 */
-func pwd(){
+func pwd() {
 
 	p, err := os.Getwd()
-	if err != nil {	panic(err)	}
+	if err != nil {
+		panic(err)
+	}
 	fmt.Println(p)
 }

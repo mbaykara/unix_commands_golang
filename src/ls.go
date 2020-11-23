@@ -18,8 +18,10 @@ func main() {
 
 func parseArgs(arguments []string) {
 	files, err := filepath.Glob("[^.]*")
-	if err != nil{ log.Fatal(err) }
-	
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	if len(arguments) == 0 {
 		for _, file := range files {
 			fmt.Println(file)
@@ -28,35 +30,40 @@ func parseArgs(arguments []string) {
 	if len(arguments) == 1 {
 		switch arg := arguments[0]; arg {
 		case "-l":
-			for _, file:= range files{
-				info,_ := os.Stat(file)
-				fmt.Println(info.Mode(), file )
+			for _, file := range files {
+				info, _ := os.Stat(file)
+				fmt.Println(info.Mode(), file)
 			}
 		case "-la":
-			files,_ := filepath.Glob("*")
-			for _, file:= range files{
-				info,_ := os.Stat(file)
-				fmt.Println(info.Mode(), file )
+			files, _ := filepath.Glob("*")
+			for _, file := range files {
+				info, _ := os.Stat(file)
+				fmt.Println(info.Mode(), file)
 			}
 		case "-R", "-lR", "-r", "-lr":
-		   err := filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
- 		   if err != nil {  return err   }
- 		   fmt.Println(path)
- 		   return nil
+			err := filepath.Walk(".", func(path string, info os.FileInfo, err error) error {
+				if err != nil {
+					return err
+				}
+				fmt.Println(path)
+				return nil
 			})
-			if err != nil { log.Println(err)}
+			if err != nil {
+				log.Println(err)
+			}
 		case "-h", "--help":
-				fmt.Println("Help will be soon")
+			fmt.Println("Help will be soon")
 		case "-a":
 			files, err := ioutil.ReadDir(".")
-			if err != nil{	log.Fatal(err) }
-			for _,file := range files {
+			if err != nil {
+				log.Fatal(err)
+			}
+			for _, file := range files {
 				fmt.Println(file.Name())
 			}
 			fmt.Print("test")
 		}
-		
-	}
 
+	}
 
 }
