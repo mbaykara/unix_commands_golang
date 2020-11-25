@@ -10,11 +10,12 @@ import (
 
 func main() {
 
-	if len(os.Args) < 2 {
+	switch a := len(os.Args);{
+	case a < 2:
 		os.Exit(0)
-	} else if len(os.Args) == 2 {
+	case a == 2:
 		readfile(os.Args[1])
-	} else {
+	default:
 		concatenate(os.Args[1], os.Args[2])
 	}
 }

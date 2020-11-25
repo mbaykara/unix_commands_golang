@@ -30,7 +30,8 @@ func parseArgs(arguments []string) {
 		switch arg := arguments[0]; arg {
 		case "-l":
 			for _, file := range files {
-				info, _ := os.Stat(file)
+				info, err := os.Stat(file)					
+			if err != nil {panic(err)}
 				fmt.Println(info.Mode(), file)
 			}
 		case "-la":
